@@ -42,7 +42,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
     // 如果遇到日期类型，按照我们定义的这个格式来转换
     @Override
     public void addFormatters(FormatterRegistry formatterRegistry) {
-        formatterRegistry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
+//        formatterRegistry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
