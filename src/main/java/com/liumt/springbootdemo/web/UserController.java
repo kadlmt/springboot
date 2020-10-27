@@ -46,6 +46,7 @@ public class UserController {
 	 */
 	@GetMapping("/")  
 	public List<User> listUsers() {
+//		int a = 1 / 0;
 		return userService.listUsers();
 	}
 	
