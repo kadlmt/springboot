@@ -7,6 +7,7 @@ import com.liumt.springbootdemo.domain.User;
 import com.liumt.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 用户管理模块的service组件实现类
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
+@Transactional(rollbackFor = {Exception.class})
 public class UserServiceImpl implements UserService {
 
 	/**
