@@ -45,24 +45,24 @@ public class UserServiceImpl implements UserService {
 	 * 新增用户
 	 * @param user 用户信息
 	 */
-	public void saveUser(User user) {
-		userDAO.saveUser(user); 
+	public Long saveUser(User user) {
+		return userDAO.saveUser(user);
 	}
 	
 	/**
 	 * 更新用户
 	 * @param user 用户信息
 	 */
-	public void updateUser(User user) {
-		userDAO.updateUser(user); 
+	public boolean updateUser(User user) {
+		return userDAO.updateUser(user);
 	}
 	
 	/**
 	 * 删除用户
 	 * @param id 用户ID
 	 */
-	public void removeUser(Long id) {
-		userDAO.removeUser(id); 
+	public boolean removeUser(Long id) {
+		return userDAO.removeUser(id);
 	}
 	
 }

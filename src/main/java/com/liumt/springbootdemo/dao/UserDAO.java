@@ -29,18 +29,18 @@ public interface UserDAO {
 	 * 新增用户
 	 * @param user 用户信息
 	 */
-	void saveUser(User user);
+	Long saveUser(User user);
 	
 	/**
 	 * 更新用户
 	 * @param user 用户信息
 	 */
-	void updateUser(User user);
+	boolean updateUser(User user);
 	
 	/**
 	 * 删除用户
 	 * @param id 用户ID
 	 */
-	void removeUser(Long id);
+	boolean removeUser(Long id);
 	
 }

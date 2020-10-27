@@ -43,24 +43,27 @@ public class UserDAOImpl implements UserDAO {
 	 * 新增用户
 	 * @param user 用户信息
 	 */
-	public void saveUser(User user) {
-		userMapper.saveUser(user); 
+	public Long saveUser(User user) {
+		userMapper.saveUser(user);
+		return user.getId();
 	}
 	
 	/**
 	 * 更新用户
 	 * @param user 用户信息
 	 */
-	public void updateUser(User user) {
-		userMapper.updateUser(user); 
+	public boolean updateUser(User user) {
+		userMapper.updateUser(user);
+		return true;
 	}
 	
 	/**
 	 * 删除用户
 	 * @param id 用户ID
 	 */
-	public void removeUser(Long id) {
-		userMapper.removeUser(id); 
+	public boolean removeUser(Long id) {
+		userMapper.removeUser(id);
+		return true;
 	}
 	
 }
