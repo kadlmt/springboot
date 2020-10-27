@@ -5,6 +5,9 @@ import java.util.List;
 import com.liumt.springbootdemo.domain.User;
 import com.liumt.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,8 +67,16 @@ public class UserController {
 	 * @param user 用户信息
 	 */
 	@PostMapping("/")  
-	public void saveUser(@RequestBody User user) {
-		userService.saveUser(user); 
+	public String saveUser(@RequestBody @Validated(User.Add.class) User user,
+						 BindingResult result) {
+		if(result.hasErrors()){
+			List<ObjectError> errors = result.getAllErrors();
+			ObjectError error = errors.get(0);
+			System.out.println(error.getObjectName() + error.getDefaultMessage());
+			return "fail";
+		}
+		userService.saveUser(user);
+		return "success";
 	}
 	
 	/**
